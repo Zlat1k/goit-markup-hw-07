@@ -44,9 +44,9 @@
 }
 
 .menu__link {
-        &--current,
-        &:hover,
-        &:focus {
+    &--current,
+    &:hover,
+    &:focus {
         color: var(--blue-text);
     }
 }

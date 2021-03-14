@@ -9,8 +9,10 @@
     margin-top: 50px;
 }
 
-.we-doing__item:not(:last-child) {
-    margin-right: 30px;
+.we-doing__item {
+    &:not(:last-child) {
+        margin-right: 30px;
+    } 
 }
 
 .we-doing__thumb {

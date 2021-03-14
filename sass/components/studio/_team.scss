@@ -13,8 +13,10 @@
     flex-basis: calc(100% / 4);
 }
     
-.team-list__items:not(:last-child) {
-    margin-right: 30px;
+.team-list__items {
+    &:not(:last-child) {
+        margin-right: 30px;
+    } 
 }
 
 .team-list__names {
