@@ -27,7 +27,7 @@
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 } 
 
-.is-hidden .modal {
+.modal {
     transform: translate(-50%, -50%) scale(0.9);
 } 
 
@@ -51,21 +51,23 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: var(--white-text);
     cursor: pointer;
+
+    &:hover .order__close-svg,
+    &:focus .order__close-svg {
+        fill: var(--blue-text);
+    }
+
+    &:active {
+        outline: none;
+    }
 }
 
-.order__close-button:active {
-    outline: none;
-}
 
 .order__close-svg {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.order__close-button:hover .order__close-svg,
-.order__close-button:focus .order__close-svg {
-    fill: var(--blue-text);
-}
-
+  
 .order__form {
     display: flex;
     flex-direction: column;  
@@ -114,18 +116,12 @@
     padding: 11px 12px 11px 42px;
 
     &:focus {
-    outline: none;
-    border-color: var(--blue-text);
-}
-}
-
-.form__input:focus ~ .form__svg {
-  fill: var(--blue-text);
-}
-
-.form__textarea:focus {
-    outline: none;
-    border-color: var(--blue-text);
+        outline: none;
+        border-color: var(--blue-text);
+    }
+    &:focus ~ .form__svg {
+        fill: var(--blue-text);
+    }
 }
 
 .form__textarea {
@@ -137,15 +133,20 @@
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     padding: 12px 16px;
-}
 
-.form__textarea::placeholder {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.17;
-    letter-spacing: 0.01em;
-    color: rgba(117, 117, 117, 0.5);
+    &::placeholder {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.17;
+        letter-spacing: 0.01em;
+        color: rgba(117, 117, 117, 0.5);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--blue-text);
+    }
 }
 
 .agreement__text {
@@ -159,26 +160,22 @@
     letter-spacing: 0.03em;
     color: rgba(117, 117, 117, 1);
     cursor: pointer;
+
+    &::before {
+        margin-right: 8px;
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        background-image: url(../images/icon-uncheck.svg);
+        background-size: cover;
+        border-radius: 2px;
+    }
 }
 
 
-.agreement__text::before {
-  margin-right: 8px;
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 15px;
-  background-image: url(../images/icon-uncheck.svg);
-  background-size: cover;
-  border-radius: 2px;
-}
 
-.agreement__check:checked + .agreement__text::before {
-  background-color: var(--blue-text);
-  background-image: url(../images/icon-check.svg);
-  background-size: cover;
-  border-radius: 2px;
-}
+
 
 .agreement__link {
     color: var(--blue-text);
@@ -194,16 +191,25 @@
 } */
 
 .agreement__check {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+    &:checked + .agreement__text {
+        &::before {
+            background-color: var(--blue-text);
+            background-image: url(../images/icon-check.svg);
+            background-size: cover;
+            border-radius: 2px;
+        }
+    }
 }
 
 .form__svg {

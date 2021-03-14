@@ -24,8 +24,10 @@
     flex-basis: calc(100% / 4);
 } 
 
-.advantages-list__item:not(:last-child) {
-    margin-right: 30px;
+.advantages-list__item {
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
 }
 
 .advantages-list__title {
