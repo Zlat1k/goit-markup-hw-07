@@ -1,3 +1,7 @@
+.htmlhintrc
+.stylelintrc.yaml
+.prettierrc.yaml
+
 # Logs
 logs
 *.log
